@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class TimeScore : MonoBehaviour
 {
-   private TimeScoreData m_timeScoreData;
+    private TimeScoreData m_timeScoreData;
 
     public float m_timeScore = 0;
+
+    [SerializeField] private UIManager m_uiManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +22,8 @@ public class TimeScore : MonoBehaviour
         m_timeScore += Time.deltaTime;
 
         m_timeScoreData .SetTimeScore(m_timeScore);
+
+        m_uiManager.SetTime(m_timeScore);
     }
 
     public float GetTimeScore()

@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0))
+        //Pキー
+        if (Input.GetKeyDown(KeyCode.P))
         {
             //シーン遷移
             m_sceneController.SceneChange(m_nextSceneName);
