@@ -6,16 +6,16 @@ public class PlayerShooter : MonoBehaviour
     private PlayerStatusController status;
 
     [SerializeField] private GameObject bulletPrefab;
-    private float cooldown;
+    [SerializeField] float cooldown;
 
     private float timer;
 
     private void Awake()
     {
         status = GetComponent<PlayerStatusController>();
-        cooldown = status.Cooldown;
+        
 
-        if (status == null) Debug.LogError("PlayerStatusController‚ª‚ ‚è‚Ü‚¹‚ñ", this);
+        if (status == null) Debug.LogError("PlayerStatusControllerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½", this);
     }
 
     void Update()
@@ -23,7 +23,7 @@ public class PlayerShooter : MonoBehaviour
         timer += Time.deltaTime;
 
         status.Cooldown -= Time.deltaTime;
-        if (status.Cooldown >= 0) return;
+        if (status.Cooldown > 0) return;
         
         Shoot();
         status.Cooldown = cooldown;
