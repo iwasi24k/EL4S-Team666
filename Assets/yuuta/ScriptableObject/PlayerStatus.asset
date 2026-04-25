@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatus
   maxHealth: 10
   speed: 5
-  cooldown: 1
+  cooldown: 5
