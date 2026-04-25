@@ -5,10 +5,6 @@ public class SlotPlay : MonoBehaviour
 {
     [SerializeField] private SlotData data;
 
-    [SerializeField] private SlotTexture targetReel;
-    [SerializeField] private SlotTexture symbolReel;
-    [SerializeField] private SlotTexture multReel;
-
     private int[] SlotIdNum = new int[3] { 0, 0, 0 };
     private bool[] SlotPlayFlg = new bool[3] { false, false, false };
 
@@ -23,7 +19,7 @@ public class SlotPlay : MonoBehaviour
     }
     SlotState state;
 
-    public void PlaySlot() 
+    public void PlaySlot()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -41,7 +37,7 @@ public class SlotPlay : MonoBehaviour
     // スペース押された時の効果
     void OnSpacePressd()
     {
-        switch(state)
+        switch (state)
         {
             case SlotState.Idle:
                 Spin();
@@ -62,11 +58,11 @@ public class SlotPlay : MonoBehaviour
             case SlotState.Stop2:
                 StopReel(2);
                 state = SlotState.Stop3;
-                break;           
+                break;
             case SlotState.Stop3:
                 state = SlotState.Idle;
                 break;
-      }
+        }
     }
 
     void Spin()
