@@ -48,10 +48,14 @@ public class SlotPlay : MonoBehaviour
                 state = SlotState.Spinnig;
                 break;
             case SlotState.Spinnig:
+
+                Spin();
+
                 StopReel(0);
                 state = SlotState.Stop1;
                 break;
             case SlotState.Stop1:
+                Spin();
                 StopReel(1);
                 state = SlotState.Stop2;
                 break;
@@ -60,12 +64,9 @@ public class SlotPlay : MonoBehaviour
                 state = SlotState.Stop3;
                 break;           
             case SlotState.Stop3:
-                state = SlotState.Result;
-                break;
-            case SlotState.Result:
                 state = SlotState.Idle;
                 break;
-        }
+      }
     }
 
     void Spin()
@@ -96,6 +97,6 @@ public class SlotPlay : MonoBehaviour
 
     void StopReel(int reelnum)
     {
-
+        SlotPlayFlg[reelnum] = false;
     }
 }
