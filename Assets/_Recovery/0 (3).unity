@@ -637,6 +637,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyBase
       objectReference: {fileID: 0}
+    - target: {fileID: 9065734596228180892, guid: d946cc1b465a98c42bf0002726663231, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -757,7 +761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704032314100415972, guid: 084f7683e8a4dcb48af23cd02e0df6ea, type: 3}
       propertyPath: cooldown
-      value: 3
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8704032314100415972, guid: 084f7683e8a4dcb48af23cd02e0df6ea, type: 3}
       propertyPath: bulletPrefab

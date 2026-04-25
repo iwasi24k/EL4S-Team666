@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8cac6d0d1a24c4f94229424e259a1d, type: 3}
   m_Name: EnemyBaseParameter
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBaseParameter
+  _moveSpeed: 0.001
+  _bulletInterval: 0.5
+  _bulletSize: 0.5
+  _hitBoxSize: 0.5
+  _bulletSpeed: 0.5

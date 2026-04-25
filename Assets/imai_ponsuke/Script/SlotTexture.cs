@@ -9,7 +9,7 @@ public class SlotTexture : MonoBehaviour
 
     [SerializeField] public List<Image> tgt;
     [SerializeField] public List<Image> sym;
-    [SerializeField] public List<Image> ;
+    //[SerializeField] public List<Image> ;
 
     [SerializeField]
     private SlotData slotData;
