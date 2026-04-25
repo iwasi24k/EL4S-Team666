@@ -267,5 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa27ca058b206a4bb8ffad5d0ad2ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShooter
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
+  target: {fileID: 1738790430421240114, guid: e6c0c5931662f4245aad79c6493a7f1e, type: 3}
+  bulletPrefab: {fileID: 6421815099104833493, guid: cc7d1c12e35e8ed48a605287fb763882, type: 3}
+  cooldown: 3
