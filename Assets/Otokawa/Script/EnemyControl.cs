@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class EnemyControl : MonoBehaviour {
     [SerializeField] private GameObject _Player;
@@ -18,20 +19,22 @@ public class EnemyControl : MonoBehaviour {
     {
         _Player =  GameObject.FindGameObjectWithTag("Player");
         _Renderer = GetComponent<Renderer>();
+
+        transform.localScale = new Vector3(EnemyManager._HitBoxSize, EnemyManager._HitBoxSize);
     }
 
     // Update is called once per frame
     void Update() {
         // 画面内に入ったとき
-        if (_LastFrameVisible == false != _Renderer.isVisible) {
-            _MoveDirection = new Vector2(transform.position.x - _Player.transform.position.x, transform.position.y - _Player.transform.position.y).normalized;
+        if (_LastFrameVisible == false && _Renderer.isVisible != false) {
+            _MoveDirection = new Vector2(_Player.transform.position.x - transform.position.x, _Player.transform.position.y - transform.position.y).normalized;
         }
         
         // 移動
         transform.position += _MoveDirection * EnemyManager._MoveSpeed;
 
         // 画面外に出たとき
-        if (_LastFrameVisible == true != _Renderer.isVisible) {
+        if (_LastFrameVisible == true && _Renderer.isVisible != true) {
             Destroy(this.gameObject);
         }
         
