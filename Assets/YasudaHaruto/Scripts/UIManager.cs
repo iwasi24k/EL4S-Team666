@@ -37,21 +37,6 @@ public class UIManager : MonoBehaviour
         SetAlpha(0); // フラッシュイメージのアルファを0に設定
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            AddHp();
-            SetTime(60.0f);
-        }
-
-        if (Keyboard.current.leftShiftKey.wasPressedThisFrame)
-        {
-            RemoveHp();
-        }
-    }
-
 
     public void SetTime(float time)
     {
