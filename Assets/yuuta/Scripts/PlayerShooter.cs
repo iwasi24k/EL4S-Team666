@@ -8,20 +8,19 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] float cooldown;
 
-    private float timer;
+    private Camera cam;
 
     private void Awake()
     {
         status = GetComponent<PlayerStatusController>();
-        
+        cam = Camera.main;
 
         if (status == null) Debug.LogError("PlayerStatusController������܂���", this);
+        if (cam == null) Debug.LogError("MainCameraがありません", this);
     }
 
     void Update()
     {
-        timer += Time.deltaTime;
-
         status.Cooldown -= Time.deltaTime;
         if (status.Cooldown > 0) return;
         
@@ -31,6 +30,22 @@ public class PlayerShooter : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bulletPrefab, transform.position, transform.rotation);
+        // マウス → ワールド座標
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        Vector3 worldPos = cam.ScreenToWorldPoint(mousePos);
+        worldPos.z = 0f;
+
+        // 方向
+        Vector2 dir = (worldPos - transform.position).normalized;
+
+        // 回転
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Quaternion rot = Quaternion.Euler(0, 0, angle);
+
+        // 生成
+        GameObject obj = Instantiate(bulletPrefab, transform.position, rot);
+
+        // 弾に方向を渡す（任意）
+        obj.GetComponent<Bullet>().SetDirection(dir);
     }
 }
