@@ -5,39 +5,24 @@ using System.Collections.Generic;
 
 public class SlotTexture : MonoBehaviour
 {
-    [SerializeField] public RectTransform content;
-    [SerializeField] public GameObject imagePrefab;
     [SerializeField] public List<Image> images;
 
+    [SerializeField] public List<Image> tgt;
+    [SerializeField] public List<Image> sym;
+    [SerializeField] public List<Image> ;
+
     [SerializeField]
-    private int slotDataSize;
-
-    public void Setup<T>(List<T> list,System.Func<T,Sprite> converter)
+    private SlotData slotData;
+    private void Update()
     {
-        SyncImageCount(list.Count);
+        Texture(slotData);
+    }
+        
 
-        for (int i = 0; i < images.Count; i++)
-        {
-            var value = list[i % list.Count];
-            images[i].sprite = converter(value);
-        }
+    void Texture(SlotData data)
+    {
     }
 
-    private void SyncImageCount(int count)
-    {
-#if UNITY_EDITOR
-        while (images.Count < count)
-        {
-            var obj = UnityEditor.PrefabUtility.InstantiatePrefab(imagePrefab, content) as GameObject;
-            images.Add(obj.GetComponent<Image>());
-        }
 
-        while (images.Count > count)
-        {
-            var last = images[images.Count - 1];
-            DestroyImmediate(last.gameObject);
-            images.RemoveAt(images.Count - 1);
-        }
-#endif
-    }
+
 }
