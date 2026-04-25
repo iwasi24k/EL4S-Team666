@@ -21,9 +21,7 @@ public class EnemyControl : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
         // 画面内に入ったとき
         if (_LastFrameVisible == false != _Renderer.isVisible) {
             _MoveDirection = new Vector2(transform.position.x - _Player.transform.position.x, transform.position.y - _Player.transform.position.y).normalized;
