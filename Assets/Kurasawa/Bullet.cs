@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected Vector2 direction;
     [SerializeField] protected Transform target;
     protected bool changed = false;
+    protected bool isLaser = false;
 
 
     public void SetTarget(Transform tar)
@@ -24,6 +25,14 @@ public class Bullet : MonoBehaviour
     public void SetIsPlayer(bool player)
     {
         isPlayer = player;
+    }
+    public void SetIsLaser(bool laser)
+    {
+        isLaser = laser;
+    }
+    public bool GetIsLaser()
+    {
+        return isLaser;
     }
     public void SetDestroy()
     {

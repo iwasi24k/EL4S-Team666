@@ -27,24 +27,14 @@ public class NormalBullet : Bullet
             }
             changed = false;
         }
-       
-        transform.Translate(direction * speed * Time.deltaTime);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        transform.position += (Vector3)direction * speed * Time.deltaTime;
     }
     void OnBecameInvisible()
     {
         Destroy(gameObject);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(isPlayer && collision.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
-        else if (!isPlayer && collision.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
-        
     }
 
 }
